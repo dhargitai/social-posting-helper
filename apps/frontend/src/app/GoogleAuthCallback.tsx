@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 function GoogleAuthCallback() {
-  const [auth, setAuth] = useState();
+  const [auth, setAuth] = useState(null);
   const location = useLocation();
   useEffect(() => {
     if (!location) {

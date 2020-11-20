@@ -11,7 +11,7 @@ export default function () {
         <h1>Welcome to frontend!</h1>
         <button
           onClick={() =>
-            (window.location = 'http://localhost:1337/connect/google')
+            (window.location.href = 'http://localhost:1337/connect/google')
           }
         >
           Login via Google

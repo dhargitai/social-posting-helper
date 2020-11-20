@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import GoogleAuthCallback from './GoogleAuthCallback'
-import Home from './Home'
+import GoogleAuthCallback from './GoogleAuthCallback';
+import Home from './Home';
 
 const StyledApp = styled.div`
   font-family: sans-serif;
@@ -144,9 +144,9 @@ export function App() {
   return (
     <StyledApp>
       <Router>
-        <Route path="/auth/google/callback" />
+        <Route path="/auth/google/callback">
           <GoogleAuthCallback />
-        </Router>
+        </Route>
 
         <Route exact path="/">
           <Home />
