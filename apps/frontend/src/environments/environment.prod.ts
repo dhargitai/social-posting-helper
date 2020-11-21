@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: process.env.BACKEND_URL,
+  backendUrl: 'https://social-posting-helper.herokuapp.com',
 };
