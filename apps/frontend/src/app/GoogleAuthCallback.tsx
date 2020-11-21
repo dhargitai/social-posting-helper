@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
+import client from '../utils/client';
+import { useAuth } from '../app/auth-provider';
 
 function GoogleAuthCallback() {
   const [auth, setAuth] = useState(null);
+  const { login } = useAuth();
   const location = useLocation();
   useEffect(() => {
     if (!location) {
       return;
     }
     const { search } = location;
-    axios({
-      method: 'GET',
-      url: `/auth/google/callback?${search}`,
-    })
-      .then((res) => res.data)
-      .then(setAuth);
+    client(`/auth/google/callback?${search}`)
+      .then((authResponse) => {
+        login(authResponse);
+        window.location.assign('/');
+      })
+      .catch((error) => {
+        console.error(error);
+        window.location.assign('/error');
+      });
   }, [location]);
-
-  console.log(auth);
 
   return (
     <div>
